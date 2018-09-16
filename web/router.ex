@@ -30,6 +30,7 @@ defmodule Discuss.Router do
   scope "/auth", Discuss do
     pipe_through :browser
 
+    delete "/signout", AuthController, :signout
     get "/:provider", AuthController, :request # Action created by Ueberauth
     get "/:provider/callback", AuthController, :callback
   end
